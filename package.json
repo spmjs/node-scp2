@@ -1,0 +1,29 @@
+{
+  "name": "scp2",
+  "version": "0.1.0a1",
+  "description": "A pure javascript scp program based on ssh2.",
+  "author": "Hsiaoming Yang <lepture@me.com>",
+  "homepage": "http://lab.lepture.com/node-scp2/",
+  "keywords": [
+    "ssh", "scp", "copy", "remote", "ssh2"
+  ],
+  "dependencies": {
+    "ssh2": "~0.1.13",
+    "lodash": "~1.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lepture/node-scp2.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lepture/node-scp2/issues"
+  },
+  "devDependencies": {
+    "jshint": "*",
+    "mocha": "*",
+    "expect.js": "*"
+  },
+  "scripts": {
+    "test": "make test"
+  }
+}
