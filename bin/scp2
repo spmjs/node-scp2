@@ -21,7 +21,7 @@ function main(argv) {
       argv.unshit(args.slice(1).join('='));
     }
     return args[0];
-  }
+  };
 
   var arg, remains = [];
 
@@ -60,7 +60,7 @@ function main(argv) {
 
   defaults = {
     port: parseInt(port, 10)
-  }
+  };
 
   var password;
   var parsed = client.parse(src);
