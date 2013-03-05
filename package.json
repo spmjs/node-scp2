@@ -25,6 +25,9 @@
     "mocha": "*",
     "expect.js": "*"
   },
+  "bin": {
+    "scp2": "bin/scp2"
+  },
   "scripts": {
     "test": "make test"
   }
