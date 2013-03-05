@@ -21,3 +21,4 @@ lib-cov/
 .settings
 .yml
 _site
+test/run.js

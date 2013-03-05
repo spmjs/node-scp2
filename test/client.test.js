@@ -1,18 +1,16 @@
-var scp = require('../lib/scp');
+var client = require('../lib/client');
 var expect = require('expect.js');
 
 describe('Client', function() {
-  var ret, client;
 
+  var ret;
   it('can parse username and host', function() {
-    client = new scp.Client();
     ret = client.parse('admin@example.com');
     expect(ret.username).to.equal('admin');
     expect(ret.host).to.equal('example.com');
   });
 
   it('can parse username, password and host', function() {
-    client = new scp.Client();
     ret = client.parse('admin:bx%9@example.com');
     expect(ret.username).to.equal('admin');
     expect(ret.password).to.equal('bx%9');
@@ -20,7 +18,6 @@ describe('Client', function() {
   });
 
   it('can parse username, password, host, and path', function() {
-    client = new scp.Client();
     ret = client.parse('admin:bx%9@example.com:/home/admin/path');
     expect(ret.username).to.equal('admin');
     expect(ret.password).to.equal('bx%9');

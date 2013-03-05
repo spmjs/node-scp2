@@ -9,6 +9,8 @@
   ],
   "dependencies": {
     "ssh2": "~0.1.13",
+    "glob": "~3.1.21",
+    "async": "~0.2.6",
     "lodash": "~1.0.1"
   },
   "repository": {
