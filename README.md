@@ -6,12 +6,12 @@ A pure javascript secure copy program based on ssh2.
 
 scp2 is greatly powered by [ssh2](https://github.com/mscdex/ssh2), implemented the `scp` in a `sftp` way.
 
-It it written in pure javascript, and should work on every OS, even Windows. Nodejs (v0.8.7 or newer) is required to make it work.
+It is written in pure javascript, and should work on every OS, even Windows. Nodejs (v0.8.7 or newer) is required to make it work.
 
 
 ## Install
 
-You can either use it as a library, or a program. For Windows users who miss scp on *nix world, you can get the command line now:
+You can either use it as a library, or a program. For Windows users who miss scp on unix/linux world, you can get the command line now:
 
     $ npm install scp2 -g
 
@@ -22,6 +22,7 @@ You will get a command line tool `scp2`, and let's try:
 Get the development version from ninja channel:
 
     $ npm install scp2@ninja
+
 
 ## High level API
 
@@ -196,3 +197,8 @@ You can listen on these events:
 
 1. Download a file from server works.
 2. Documentation on this lib.
+
+**2013-03-06** `0.1.0a3` ~ ninja
+
+1. Fix path bug on windows.
+2. Pretty output log.
