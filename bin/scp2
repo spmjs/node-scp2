@@ -2,7 +2,6 @@
 
 var fs = require('fs');
 var path = require('path');
-var util = require('util');
 var client = require('../');
 
 main(process.argv.slice());
@@ -123,25 +122,25 @@ function helpMessage() {
 function printLog(quiet) {
   if (!quiet) {
     client.on('connect', function() {
-      util.log('connected');
+      log('connected');
     });
     client.on('ready', function() {
-      util.log('ready');
+      log('ready');
     });
     client.on('mkdir', function(p) {
-      util.log('mkdir ' + p);
+      log('mkdir ' + p);
     });
     client.on('write', function(o) {
-      util.log('write ' + o.destination);
+      log('write ' + o.destination);
     });
     client.on('read', function(p) {
-      util.log('read ' + p);
+      log('read ' + p);
     });
     client.on('close', function() {
-      util.log('close');
+      log('close');
     });
     client.on('end', function() {
-      util.log('end');
+      log('end');
     });
   }
 }
@@ -155,14 +154,41 @@ function prompt(str, fn) {
 }
 
 function scp(src, dest, defaults) {
+  console.log();
   client.defaults(defaults);
   client.scp(src, dest, function(err) {
     if (err) {
       console.error(err);
       process.exit(1);
     } else {
-      util.log('scp success.');
+      log('scp success');
     }
+    console.log();
     process.exit();
   });
+}
+
+
+function pad(n) {
+  return n < 10 ? '0' + n.toString(10) : n.toString(10);
+}
+
+var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep',
+              'Oct', 'Nov', 'Dec'];
+
+// 26 Feb 16:19:34
+function timestamp() {
+  var d = new Date();
+  var time = [pad(d.getHours()),
+              pad(d.getMinutes()),
+              pad(d.getSeconds())].join(':');
+  return [d.getDate(), months[d.getMonth()], time].join(' ');
+}
+
+function grey(msg) {
+  return '  \x1b[90m' + msg.toString() + '\x1b[39m';
+}
+
+function log(msg) {
+  console.log(grey(timestamp()) + ' - ' + msg.toString());
 }
