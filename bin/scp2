@@ -134,6 +134,9 @@ function printLog(quiet) {
     client.on('write', function(o) {
       util.log('write ' + o.destination);
     });
+    client.on('read', function(p) {
+      util.log('read ' + p);
+    });
     client.on('close', function() {
       util.log('close');
     });
