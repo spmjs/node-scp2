@@ -19,6 +19,9 @@ You will get a command line tool `scp2`, and let's try:
 
     $ scp2 -h
 
+Get the development version from ninja channel:
+
+    $ npm install scp2@ninja
 
 ## High level API
 
@@ -102,7 +105,7 @@ The high level client is an instance of `Client`, but it contains the high level
 ### Methods
 
 
-- **defaults** function({})
+- **defaults** `function({})`
 
   set the default values for the remote server.
 
@@ -126,19 +129,19 @@ The high level client is an instance of `Client`, but it contains the high level
   More on the values at [ssh2](https://github.com/mscdex/ssh2).
 
 
-- **sftp** function(callback) -> callback(err, sftp)
+- **sftp** `function(callback) -> callback(err, sftp)`
 
   Get the sftp.
 
-- **close** function()
+- **close** `function()`
 
   Close all sessions.
 
-- **mkdir** function(dir, [attr], callback) -> callback(err)
+- **mkdir** `function(dir, [attr], callback) -> callback(err)`
 
   Make a directory on the remote server. It behaves like `mdkir -p`.
 
-- **write** function(options, callback) -> callback(err)
+- **write** `function(options, callback) -> callback(err)`
 
   Write content on the remote server.
 
@@ -156,7 +159,7 @@ The high level client is an instance of `Client`, but it contains the high level
   - attrs
   - source: the source path, e.g. local/file.txt
 
-- **upload** function(src, dest, callback) -> callback(err)
+- **upload** `function(src, dest, callback) -> callback(err)`
 
   upload a local file to the server.
 
@@ -164,7 +167,7 @@ The high level client is an instance of `Client`, but it contains the high level
   client.upload('file.txt', '/home/admin/file.txt', callback)
   ```
 
-- **download** function(src, dest, callback) -> callback(err)
+- **download** `function(src, dest, callback) -> callback(err)`
 
   download a server file to local.
 
@@ -181,3 +184,15 @@ You can listen on these events:
 - mkdir (dir)
 - write (object)
 - read (src)
+
+## Changelog
+
+- **2013-03-05** `0.1.0a1` ~ ninja
+
+  1. Init the program, take the name scp2 in npmjs.org.
+  2. scp to server works.
+
+- **2013-03-06** `0.1.0a2` ~ ninja
+
+  1. Download a file from server works.
+  2. Documentation on this lib.
