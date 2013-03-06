@@ -39,6 +39,10 @@ function main(argv) {
       case '--identify':
         identify = argv.shift();
         break;
+      case '-v':
+      case '--version':
+        versionMessage();
+        break;
       case '-h':
       case '--help':
         helpMessage();
@@ -108,6 +112,7 @@ function helpMessage() {
     '    -p, --port=<port>       ssh port, default: 22',
     '    -i, --identify=<file>   identify file',
     '    -q, --quiet             do not show log',
+    '    -v, --version           display the version',
     '    -h, --help              display this message',
     '',
     '  Examples:',
@@ -116,6 +121,15 @@ function helpMessage() {
     '',
   ];
   console.log(lines.join('\n'));
+  process.exit();
+}
+
+function versionMessage() {
+  var pkg = require('../package.json');
+  var format = require('util').format;
+  console.log()
+  console.log(format('  %s %s (%s)', pkg.name, pkg.version, process.platform));
+  console.log()
   process.exit();
 }
 
