@@ -187,12 +187,12 @@ You can listen on these events:
 
 ## Changelog
 
-- **2013-03-05** `0.1.0a1` ~ ninja
+**2013-03-05** `0.1.0a1` ~ ninja
 
-  1. Init the program, take the name scp2 in npmjs.org.
-  2. scp to server works.
+1. Init the program, take the name scp2 in npmjs.org.
+2. scp to server works.
 
-- **2013-03-06** `0.1.0a2` ~ ninja
+**2013-03-06** `0.1.0a2` ~ ninja
 
-  1. Download a file from server works.
-  2. Documentation on this lib.
+1. Download a file from server works.
+2. Documentation on this lib.
