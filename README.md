@@ -95,7 +95,7 @@ client.scp({
 
 ## Low level API
 
-The get client:
+Get the client:
 
 ```js
 var Client = require('scp2').Client;
@@ -186,19 +186,28 @@ You can listen on these events:
 - write (object)
 - read (src)
 
+## License
+
+MIT
+
 ## Changelog
 
-**2013-03-05** `0.1.0a1` ~ ninja
+**2013-03-07** `0.1.0b1` ~ ninja
 
-1. Init the program, take the name scp2 in npmjs.org.
-2. scp to server works.
+1. show version options on binary
+2. bugfix of upload, it should mkdir right
+
+**2013-03-06** `0.1.0a3` ~ ninja
+
+1. Fix path bug on windows.
+2. Pretty output log.
 
 **2013-03-06** `0.1.0a2` ~ ninja
 
 1. Download a file from server works.
 2. Documentation on this lib.
 
-**2013-03-06** `0.1.0a3` ~ ninja
+**2013-03-05** `0.1.0a1` ~ ninja
 
-1. Fix path bug on windows.
-2. Pretty output log.
+1. Init the program, take the name scp2 in npmjs.org.
+2. scp to server works.
