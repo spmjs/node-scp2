@@ -188,6 +188,10 @@ You can listen on these events:
 
 ## Changelog
 
+**2013-03-08** `0.1.0` ~ stable
+
+1. remove the require of buffer, `Buffer` is on global
+
 **2013-03-07** `0.1.0b1` ~ ninja
 
 1. show version options on binary

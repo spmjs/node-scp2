@@ -1,6 +1,6 @@
 {
   "name": "scp2",
-  "version": "0.1.0b1",
+  "version": "0.1.0",
   "description": "A pure javascript scp program based on ssh2.",
   "author": "Hsiaoming Yang <lepture@me.com>",
   "homepage": "http://lab.lepture.com/node-scp2/",
