@@ -2,6 +2,7 @@
 
 var fs = require('fs');
 var path = require('path');
+var async = require('async');
 var client = require('../');
 
 main(process.argv.slice());
@@ -88,18 +89,26 @@ function main(argv) {
     }
   });
 
-  if (!password && identify && fs.existsSync(identify)) {
-    defaults.privateKey = fs.readFileSync(identify);
-    scp(src, dest, defaults);
-  } else if (!password) {
-    prompt('  password: ', function(val) {
-      defaults.password = val;
-      scp(src, dest, defaults);
+  client.on('keyboard-interactive', function(name, instructions, instructionsLang, prompts, finish) {
+    console.log(name, instructions, instructionsLang, prompts)
+    var ret = [];
+    async.each(prompts, function(msg) {
+      prompt(msg.prompt, function(val) {
+        ret.push(val);
+      });
+    }, function(err) {
+      finish(ret);
     });
-  } else {
+  });
+
+  if (password) {
     defaults.password = password;
-    scp(src, dest, defaults);
   }
+  if (identify && fs.existsSync(identify)) {
+    defaults.privateKey = fs.readFileSync(identify);
+  }
+  defaults.tryKeyboard = true;
+  scp(src, dest, defaults);
 }
 
 function helpMessage() {
