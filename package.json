@@ -1,11 +1,15 @@
 {
   "name": "scp2",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A pure javascript scp program based on ssh2.",
   "author": "Hsiaoming Yang <lepture@me.com>",
   "homepage": "https://github.com/lepture/node-scp2",
   "keywords": [
-    "ssh", "scp", "copy", "remote", "ssh2"
+    "ssh",
+    "scp",
+    "copy",
+    "remote",
+    "ssh2"
   ],
   "dependencies": {
     "ssh2": "~0.2.5",

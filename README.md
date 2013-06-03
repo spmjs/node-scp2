@@ -188,6 +188,10 @@ You can listen on these events:
 
 ## Changelog
 
+**2013-06-03** `0.1.1` ~stable
+
+1. Bugfix for scp a large file.
+
 **2013-03-08** `0.1.0` ~ stable
 
 1. remove the require of buffer, `Buffer` is on global
