@@ -207,11 +207,7 @@ function grey(msg) {
   return '  \x1b[90m' + msg.toString() + '\x1b[39m';
 }
 
-function log(msg, progress) {
+function log(msg, r) {
   msg = grey(timestamp()) + ' - ' + msg.toString();
-  if (progress) {
-    process.stdout.write(msg + '\r');
-  } else {
-    process.stdout.write(msg + '\n');
-  }
+  process.stdout.write(msg + (r ? '\r' : '\n'));
 }
