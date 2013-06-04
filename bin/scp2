@@ -147,8 +147,9 @@ function printLog(quiet) {
     client.on('write', function(o) {
       log('write ' + o.destination);
     });
-    client.on('transfer', function(buf, percent) {
-      log('transfer ' + (percent * 100).toFixed(4) + '% data', true);
+    client.on('transfer', function(buf, up, total) {
+      up = up + 1;
+      log('transfer ' + up  + '/' + total + ' data', up < total);
     });
     client.on('read', function(p) {
       log('read ' + p);
