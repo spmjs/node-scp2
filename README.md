@@ -185,8 +185,14 @@ You can listen on these events:
 - mkdir (dir)
 - write (object)
 - read (src)
+- transfer (buffer, uploaded, total)
 
 ## Changelog
+
+**2013-06-04** `0.1.2` ~stable
+
+1. Fixed for uploading a large file (beyond the limitation of fs.readFile)
+2. Event emit for `transfer`
 
 **2013-06-03** `0.1.1` ~stable
 
