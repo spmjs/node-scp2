@@ -12,10 +12,10 @@
     "ssh2"
   ],
   "dependencies": {
-    "ssh2": "~0.2.5",
-    "glob": "~3.2.1",
-    "async": "~0.2.6",
-    "lodash": "~1.2.1"
+    "ssh2": "~0.2.12",
+    "glob": "~3.2.6",
+    "async": "~0.2.9",
+    "lodash": "~2.0.0"
   },
   "repository": {
     "type": "git",
