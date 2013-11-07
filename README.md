@@ -189,6 +189,10 @@ You can listen on these events:
 
 ## Changelog
 
+**2013-11-07** `0.1.4` ~stable
+
+1. Bugfix
+
 **2013-06-04** `0.1.3` ~stable
 
 1. Fixed mkdir mode bug
