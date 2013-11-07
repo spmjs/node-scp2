@@ -1,9 +1,3 @@
-all:
-	@npm install -d
-	@cp scripts/githooks/* .git/hooks/
-	@chmod -R +x .git/hooks/
-
-
 specs := $(shell find ./test -name '*.test.js' ! -path "*node_modules/*")
 reporter = spec
 opts =
@@ -27,4 +21,4 @@ coverage:
 clean:
 	@rm -fr _site
 
-.PHONY: all build test lint coverage
+.PHONY: build test lint coverage
