@@ -1,6 +1,6 @@
 {
   "name": "scp2",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "description": "A pure javascript scp program based on ssh2.",
   "author": "Hsiaoming Yang <lepture@me.com>",
   "homepage": "https://github.com/lepture/node-scp2",
@@ -12,10 +12,10 @@
     "ssh2"
   ],
   "dependencies": {
-    "ssh2": "~0.3.0",
-    "glob": "~3.2.6",
-    "async": "~0.2.9",
-    "lodash": "~2.0.0"
+    "ssh2": "~0.3.6",
+    "glob": "~4.0.6",
+    "async": "~0.9.0",
+    "lodash": "~2.4.1"
   },
   "repository": {
     "type": "git",
