@@ -189,6 +189,18 @@ You can listen on these events:
 
 ## Changelog
 
+**2015-01-09** `0.2.1`
+
+1. Bugfix
+
+
+**2014-10-30** `0.2.0`
+
+1. Fixed the issue with corrupt download when file Size more than 65K
+2. Raising error on remote file not found
+3. Fix mode of all files being set to 0755
+4. Dependencies upgrade
+
 **2013-11-07** `0.1.4` ~stable
 
 1. Bugfix
