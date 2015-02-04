@@ -8,14 +8,17 @@ test:
 lint:
 	@node_modules/.bin/jshint lib/client.js lib/scp.js index.js bin/scp2
 
-out = _site/coverage.html
+out_dir = _site
+out_file = ${out_dir}/coverage.html
+
 coverage:
+	@mkdir -p ${out_dir}
 	@rm -fr lib-cov
-	@jscoverage lib lib-cov
-	@NICO_COVERAGE=1 $(MAKE) test reporter=html-cov > ${out}
+	@node_modules/.bin/jscoverage lib lib-cov
+	@NICO_COVERAGE=1 $(MAKE) test opts=lib-cov reporter=html-cov --no-print-directory > ${out_file}
 	@echo
 	@rm -fr lib-cov
-	@echo "Built Report to ${out}"
+	@echo "Built Report to ${out_file}"
 	@echo
 
 clean:
