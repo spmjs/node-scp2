@@ -15,7 +15,7 @@ coverage:
 	@mkdir -p ${out_dir}
 	@rm -fr lib-cov
 	@node_modules/.bin/jscoverage lib lib-cov
-	@NICO_COVERAGE=1 $(MAKE) test opts=lib-cov reporter=html-cov --no-print-directory > ${out_file}
+	@SCP2_COVERAGE=1 $(MAKE) test opts=lib-cov reporter=html-cov --no-print-directory > ${out_file}
 	@echo
 	@rm -fr lib-cov
 	@echo "Built Report to ${out_file}"
