@@ -1,4 +1,6 @@
-var client = require('../lib/client');
+var libpath = process.env['SCP2_COVERAGE'] ? '../lib-cov' : '../lib';
+
+var client = require(libpath + '/client');
 var expect = require('expect.js');
 
 describe('Client', function() {
