@@ -189,6 +189,12 @@ You can listen on these events:
 
 ## Changelog
 
+**2015-06-01** `0.2.2`
+
+1. Added error callback to download prototype
+2. Adding Client to scp module exports
+
+
 **2015-01-09** `0.2.1`
 
 1. Bugfix
