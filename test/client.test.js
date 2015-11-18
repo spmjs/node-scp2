@@ -26,4 +26,55 @@ describe('Client', function() {
     expect(ret.host).to.equal('example.com');
     expect(ret.path).to.equal('/home/admin/path');
   });
+
+
+});
+
+describe('when calling from windows', function() {
+  var originPlatform = process.platform;
+
+  afterEach(function() {
+    Object.defineProperty(process, 'platform', {
+      value: originPlatform
+    });
+  });
+
+  it('should create return 0755 for windows', function() {
+    Object.defineProperty(process, 'platform', {
+      value: 'win32'
+    });
+    var originSftp = client.sftp;
+    client.sftp = function(callback) {
+      callback(new Error()); // just want to test attrs.mode, make method return earily
+    };
+
+    var attrs = {
+      mode: 16822
+    };
+
+    client.mkdir('testdir', attrs, function(err) {
+      expect(attrs.mode).to.equal('0755');
+    });
+  });
+
+  it('should create return actual mode for mac or linux', function() {
+    Object.defineProperty(process, 'platform', {
+      value: 'darwin'
+    });
+    var originSftp = client.sftp;
+    client.sftp = function(callback) {
+      callback(new Error()); // just want to test attrs.mode, make method return earily
+    };
+
+    var attrs = {
+      mode: '0777'
+    };
+
+    client.mkdir('testdir', attrs, function(err) {
+      expect(attrs.mode).to.equal('0777');
+    });
+  });
+
+
+
 });
