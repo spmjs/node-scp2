@@ -115,7 +115,8 @@ The high level client is an instance of `Client`, but it contains the high level
       port: 22,
       host: 'example.com',
       username: 'admin',
-      privateKey: '....'
+      privateKey: '....',
+      // password: 'password', (accepts password also)
   });
   ```
 
