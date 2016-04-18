@@ -190,6 +190,16 @@ You can listen on these events:
 
 ## Changelog
 
+**2016-04-18** `0.3.0`
+
+  * Retain compatible with old implementations
+  * Added parameter to scp to allow custom client
+  * Add password to client object options
+  * Fix scp from windows client with folder
+  * Update version of ssh2 to 0.4.10
+  * Add pass arguments to callback
+  * Fix Closes conection when downloading a single file
+
 **2015-06-01** `0.2.2`
 
 1. Added error callback to download prototype
