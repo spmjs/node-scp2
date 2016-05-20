@@ -190,6 +190,10 @@ You can listen on these events:
 
 ## Changelog
 
+**2016-05-20** `0.4.0`
+
+  * upgrade glob
+
 **2016-04-18** `0.3.0`
 
   * Retain compatible with old implementations
