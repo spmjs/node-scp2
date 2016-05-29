@@ -197,6 +197,10 @@ You can listen on these events:
 
 ## Changelog
 
+**2016-05-29** `0.4.0`
+
+  * enable port
+
 **2016-05-20** `0.4.0`
 
   * upgrade glob
