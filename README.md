@@ -40,6 +40,13 @@ client.scp('file.txt', 'admin:password@example.com:/home/admin/', function(err) 
 })
 ```
 
+You can also add the port to the url (default is 22):
+
+```js
+client.scp('file.txt', 'admin:password@example.com:port:/home/admin/', function(err) {
+})
+```
+
 Copy a file to the server in another way:
 
 ```js
