@@ -174,7 +174,7 @@ function prompt(str, fn) {
 function scp(src, dest, defaults) {
   console.log();
   client.defaults(defaults);
-  client.scp(src, dest, function(err) {
+  client.scp(src, dest, client, function(err) {
     if (err) {
       console.error(err);
       process.exit(1);
