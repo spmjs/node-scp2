@@ -97,6 +97,17 @@ client.scp({
 }, './', function(err) {})
 ```
 
+Login using private key:
+```js
+client.scp('file.txt', {
+    host: 'example.com',
+    username: 'admin',
+    privateKey: require("fs").readFileSync('path/to/private/key'),
+    passphrase: 'private_key_password',
+    path: '/home/admin/'
+}, function(err) {})
+```
+
 **TODO**: download via glob pattern.
 
 
