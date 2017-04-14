@@ -58,6 +58,15 @@ client.scp('file.txt', {
 }, function(err) {})
 ```
 
+Copy a [`Buffer`](https://nodejs.org/api/buffer.html) to the server:
+
+```js
+var buffer = new Buffer('Hello World\n');
+
+client.scp(buffer, 'admin:password@example.com:port:/home/admin/', function(err) {
+});
+```
+
 Copy a file to the server and rename it:
 
 ```js
