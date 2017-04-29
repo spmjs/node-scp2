@@ -191,6 +191,42 @@ The high level client is an instance of `Client`, but it contains the high level
 
   download a server file to local.
 
+### Example with progress bar (download from server)
+
+You can easily combine this module with the `progress` npm package, to get live progress data in your commandline interface. Example below:
+
+```javascript
+var scp2 = require('scp2');
+var ProgressBar = require('progress');
+
+var client = new scp2.Client();
+var bar;
+
+client.on('transfer', function(buf, downloaded, total) {
+  if (!bar) {
+    bar = new ProgressBar('  downloading [:bar] :rate/bps :percent :etas', {
+      complete: '=',
+      incomplete: ' ',
+      width: 20,
+      total: total
+    });
+  }
+  bar.tick(buf.length);
+});
+
+scp2.scp({
+  host: ...,
+  username: ...,
+  password: ...,
+  path: '/path/to/src/file'
+}, '/path/to/dest/file', client, function(err) {
+  if (err) {
+    console.log(err);
+  }
+
+  // Do stuff with the downloaded file
+});
+```
 
 ## Events
 
