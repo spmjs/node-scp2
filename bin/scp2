@@ -17,7 +17,7 @@ function main(argv) {
     var args = argv.shift();
     args = args.split('=');
     if (args.length > 1) {
-      argv.unshit(args.slice(1).join('='));
+      argv.unshift(args.slice(1).join('='));
     }
     return args[0];
   };
