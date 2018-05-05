@@ -4,22 +4,22 @@ A pure javascript secure copy program based on ssh2.
 
 -----
 
-scp2 is greatly powered by [ssh2](https://github.com/mscdex/ssh2), implemented the `scp` in a `sftp` way.
+scp2 is greatly powered by [ssh2](https://github.com/mscdex/ssh2), implementing `scp` in an `sftp` way.
 
-It is written in pure javascript, and should work on every OS, even Windows. Nodejs (v0.8.7 or newer) is required to make it work.
+It is written in pure javascript, and should work on every OS, even Windows. Nodejs (v0.8.7 or newer) is required to use this library.
 
 
 ## Install
 
-You can either use it as a library, or a program. For Windows users who miss scp on unix/linux world, you can get the command line now:
+You can either use it as a library, or via CLI. For Windows users who miss scp in the unix/linux world, you can get it with:
 
     $ npm install scp2 -g
 
-You will get a command line tool `scp2`, and let's try:
+You will get a command line tool `scp2`, now let's try:
 
     $ scp2 -h
 
-Get the development version from ninja channel:
+To get the development version from the ninja channel:
 
     $ npm install scp2@ninja
 
@@ -47,7 +47,7 @@ client.scp('file.txt', 'admin:password@example.com:port:/home/admin/', function(
 })
 ```
 
-Copy a file to the server in another way:
+Copy a file to the server specifying the destination as an object:
 
 ```js
 client.scp('file.txt', {
@@ -79,14 +79,14 @@ client.scp('data/*.js', 'admin:password@example.com:/home/admin/data/', function
 })
 ```
 
-Download a file from server:
+Download a file from the server:
 
 ```js
 client.scp('admin:password@example.com:/home/admin/file.txt', './', function(err) {
 })
 ```
 
-Download a file from server in another way:
+Download a file from the server specifying the destination as an object:
 
 ```js
 client.scp({
@@ -97,7 +97,7 @@ client.scp({
 }, './', function(err) {})
 ```
 
-Login using private key:
+Login with a private key:
 ```js
 client.scp('file.txt', {
     host: 'example.com',
@@ -119,7 +119,7 @@ Get the client:
 var Client = require('scp2').Client;
 ```
 
-The high level client is an instance of `Client`, but it contains the high level API `scp`.
+The high level client is an instance of `Client`, but also contains the high level API `scp`.
 
 ### Methods
 
@@ -146,12 +146,12 @@ The high level client is an instance of `Client`, but it contains the high level
   });
   ```
 
-  More on the values at [ssh2](https://github.com/mscdex/ssh2).
+  More on these values at [ssh2](https://github.com/mscdex/ssh2).
 
 
 - **sftp** `function(callback) -> callback(err, sftp)`
 
-  Get the sftp.
+  Get the sftp object.
 
 - **close** `function()`
 
@@ -172,7 +172,7 @@ The high level client is an instance of `Client`, but it contains the high level
   }, callback)
   ```
 
-  The options can contain:
+  The options object can contain:
 
   - destination
   - content: string or buffer
@@ -189,12 +189,12 @@ The high level client is an instance of `Client`, but it contains the high level
 
 - **download** `function(src, dest, callback) -> callback(err)`
 
-  download a server file to local.
+  download a file from the server to local.
 
 
 ## Events
 
-You can listen on these events:
+You can listen for these events:
 
 - connect
 - ready
