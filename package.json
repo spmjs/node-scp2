@@ -26,14 +26,21 @@
   },
   "devDependencies": {
     "expect.js": "0",
+    "jscoverage": "^0.5.9",
     "jshint": "2",
     "mocha": "2",
-    "jscoverage": "^0.5.9"
+    "pre-commit": "^1.2.2"
   },
   "bin": {
     "scp2": "bin/scp2"
   },
   "scripts": {
-    "test": "make test"
-  }
+    "lint": "jshint lib/client.js lib/scp.js index.js bin/scp2",
+    "test": "mocha --reporter spec",
+    "coverage": "jscoverage lib lib-cov && mocha opts=lib-cov reporter=html-cov --no-print-directory > _site/coverage.html"
+  },
+  "precommit": [
+    "lint",
+    "test"
+  ]
 }
