@@ -37,7 +37,8 @@
   "scripts": {
     "lint": "jshint lib/client.js lib/scp.js index.js bin/scp2",
     "test": "mocha --reporter spec",
-    "coverage": "jscoverage lib lib-cov && mocha opts=lib-cov reporter=html-cov --no-print-directory > _site/coverage.html"
+    "coverage": "jscoverage lib lib-cov && mocha opts=lib-cov reporter=html-cov --no-print-directory > _site/coverage.html",
+    "clean": "node -e 'require(\"fs\").unlinkSync(\"./_site/coverage.html\")'"
   },
   "precommit": [
     "lint",
