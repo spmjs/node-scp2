@@ -20,3 +20,4 @@ node_modules/
 .settings
 .yml
 test/run.js
+.nyc_output

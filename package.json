@@ -4,6 +4,7 @@
   "description": "A pure javascript scp program based on ssh2.",
   "author": "Hsiaoming Yang <lepture@me.com>",
   "homepage": "https://github.com/lepture/node-scp2",
+  "main": "lib/scp.js",
   "keywords": [
     "ssh",
     "scp",
@@ -12,9 +13,9 @@
     "ssh2"
   ],
   "dependencies": {
-    "async": "~0.9.0",
-    "glob": "~7.0.3",
-    "lodash": "~4.11.1",
+    "async": "^2.6.1",
+    "glob": "^7.1.3",
+    "lodash": "^4.17.11",
     "ssh2": "^0.6.0"
   },
   "repository": {
@@ -25,20 +26,25 @@
     "url": "https://github.com/lepture/node-scp2/issues"
   },
   "devDependencies": {
-    "expect.js": "0",
-    "jscoverage": "^0.5.9",
-    "jshint": "2",
-    "mocha": "2",
+    "expect.js": "^0.3.1",
+    "jshint": "^2.9.6",
+    "mocha": "^5.2.0",
+    "nyc": "^13.0.1",
     "pre-commit": "^1.2.2"
   },
   "bin": {
     "scp2": "bin/scp2"
   },
+  "nyc": {
+    "include": [
+      "lib/**/*.js",
+      "bin/**/*"
+    ]
+  },
   "scripts": {
     "lint": "jshint lib/client.js lib/scp.js index.js bin/scp2",
     "test": "mocha --reporter spec",
-    "coverage": "jscoverage lib lib-cov && mocha opts=lib-cov reporter=html-cov --no-print-directory > _site/coverage.html",
-    "clean": "node -e 'require(\"fs\").unlinkSync(\"./_site/coverage.html\")'"
+    "coverage": "nyc mocha"
   },
   "precommit": [
     "lint",
