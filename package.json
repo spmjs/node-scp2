@@ -42,7 +42,7 @@
     ]
   },
   "scripts": {
-    "lint": "jshint lib/client.js lib/scp.js index.js bin/scp2",
+    "lint": "jshint lib/client.js lib/scp.js bin/scp2",
     "test": "mocha --reporter spec",
     "coverage": "nyc mocha"
   },
