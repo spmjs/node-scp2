@@ -2,9 +2,12 @@
 
 var fs = require('fs');
 var path = require('path');
-var client = require('../');
+var prompt = require('prompt');
+var client = require('../lib/scp');
 
 main(process.argv.slice());
+
+prompt.start();
 
 function main(argv) {
   var identify, src, dest;
@@ -76,10 +79,20 @@ function main(argv) {
 
   client.on('error', function(err) {
     if (err.code === 'ECONNREFUSED') {
-      prompt('  password: ', function(val) {
+      prompt.get({
+        properties: {
+          password: {
+            hidden: true
+          }
+        }
+      }, function (err, values) {
+        if (err) {
+          console.log('Password is required');
+          process.exit();
+        }
         client.close();
         delete client.__ssh;
-        defaults.password = val;
+        defaults.password = values.password;
         scp(src, dest, defaults);
       });
     } else {
@@ -92,8 +105,18 @@ function main(argv) {
     defaults.privateKey = fs.readFileSync(identify);
     scp(src, dest, defaults);
   } else if (!password) {
-    prompt('  password: ', function(val) {
-      defaults.password = val;
+    prompt.get({
+      properties: {
+        password: {
+          hidden: true
+        }
+      }
+    }, function(err, values) {
+      if(err) {
+        console.log('Password is required');
+        process.exit();
+      }
+      defaults.password = values.password;
       scp(src, dest, defaults);
     });
   } else {
@@ -161,14 +184,6 @@ function printLog(quiet) {
       log('end');
     });
   }
-}
-
-function prompt(str, fn) {
-  process.stdout.write(str);
-  process.stdin.setEncoding('utf8');
-  process.stdin.once('data', function(val) {
-    fn(val.trim());
-  }).resume();
 }
 
 function scp(src, dest, defaults) {
