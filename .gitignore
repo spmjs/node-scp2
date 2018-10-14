@@ -16,9 +16,9 @@ Thumbs.db
 *.swo
 *.log
 node_modules/
-lib-cov/
 .buildpath
 .settings
 .yml
-_site
 test/run.js
+.nyc_output
+/coverage
