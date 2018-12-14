@@ -121,6 +121,18 @@ describe('Client', function() {
     expect(ret.path).to.equal('/home/admin/path');
   });
 
+  it('returns non-string objects ', function() {
+    var stringBuffer = new Buffer('1234'),
+        arrayBuffer = new Buffer([ '1', '2', '3', '4' ]),
+        obj = { username: 'admin', host: 'example.com' };
+
+    expect(client.parse(false)).to.equal(false);
+    expect(client.parse(42)).to.equal(42);
+    expect(client.parse(stringBuffer)).to.equal(stringBuffer);
+    expect(client.parse(arrayBuffer)).to.equal(arrayBuffer);
+    expect(client.parse(obj)).to.equal(obj);
+  });
+
 });
 
 describe('when calling from windows', function() {
