@@ -121,6 +121,15 @@ describe('Client', function() {
     expect(ret.path).to.equal('/home/admin/path');
   });
 
+  it('can handle "@" in username', function() {
+    ret = client.parse('admin@2:bx%9@example.com:12345:/home/admin/path');
+    expect(ret.username).to.equal('admin@2');
+    expect(ret.password).to.equal('bx%9');
+    expect(ret.host).to.equal('example.com');
+    expect(ret.port).to.equal('12345');
+    expect(ret.path).to.equal('/home/admin/path');
+  });
+
 });
 
 describe('when calling from windows', function() {
