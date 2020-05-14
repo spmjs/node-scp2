@@ -12,10 +12,10 @@
     "ssh2"
   ],
   "dependencies": {
-    "async": "~0.9.0",
-    "glob": "~7.0.3",
-    "lodash": "~4.17.11",
-    "ssh2": "^0.6.0"
+    "async": "~3.2.0",
+    "glob": "~7.1.6",
+    "lodash": "~4.17.15",
+    "ssh2": "^0.8.9"
   },
   "repository": {
     "type": "git",
@@ -25,15 +25,15 @@
     "url": "https://github.com/lepture/node-scp2/issues"
   },
   "devDependencies": {
-    "expect.js": "0",
-    "jshint": "2",
-    "mocha": "2",
-    "jscoverage": "^0.5.9"
+    "expect.js": "^0.3.1",
+    "jshint": "~2.11.1",
+    "mocha": "~7.1.2"
   },
   "bin": {
     "scp2": "bin/scp2"
   },
   "scripts": {
-    "test": "make test"
+    "test": "mocha --reporter spec test/client.test.js",
+    "lint": "jshint lib/client.js lib/scp.js index.js bin/scp2"
   }
 }
