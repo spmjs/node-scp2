@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 var fs = require('fs');
-var path = require('path');
 var client = require('../');
 
 main(process.argv.slice());
@@ -127,9 +126,9 @@ function helpMessage() {
 function versionMessage() {
   var pkg = require('../package.json');
   var format = require('util').format;
-  console.log()
+  console.log();
   console.log(format('  %s %s (%s)', pkg.name, pkg.version, process.platform));
-  console.log()
+  console.log();
   process.exit();
 }
 
